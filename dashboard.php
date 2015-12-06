@@ -1,3 +1,7 @@
+<?php 
+session_start();
+if (isset($_SESSION["login"]) && ($_SESSION["login"] == "Okay") || $_SESSION["login"] == "ok") {
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -48,7 +52,11 @@
           <li><a href="View/info.html">Info</a></li>
           <li><a href="View/contact.html">Kontakt</a></li>
 
-          <li class="active"><a>Platzhalter für Email</a></li>
+          <li class="active"><a>
+			  <?php
+			  	echo "Hallo {$_SESSION['name']}"; 
+			  ?>
+			  </a></li>
 
         </ul>
       </div>
@@ -92,11 +100,21 @@
     </div>
   </div>
   <!--end-container-->
+  
+  <p><a href="/Controller/logout.php">Ausloggen</p>
+  
   <footer class="footer">
     <div class="container">
       <p class="text-muted"> &copy; Besart Pllana</p>
     </div>
   </footer>
 </body>
-
 </html>
+<?php
+} else {
+	$host  = htmlspecialchars($_SERVER["HTTP_HOST"]);
+	$uri   = rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
+	$extra = "start.html";
+	header("Location: http://$host$uri/$extra");
+}
+?>
