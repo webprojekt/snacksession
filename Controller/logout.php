@@ -1,5 +1,5 @@
 <?php
-  session start();
+  session_start();
   $_SESSION = array();
    
   if (isset($_COOKIE[session_name()])) {

@@ -1,7 +1,8 @@
-<?php 
-session_start();
-if (isset($_SESSION["login"]) && ($_SESSION["login"] == "Okay") || $_SESSION["login"] == "ok") {
+<?php
+  setcookie("email", "Hans@hans.de", time()+7200);
+  setcookie("passwort", "geheim", time()+7200)
 ?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -33,37 +34,16 @@ if (isset($_SESSION["login"]) && ($_SESSION["login"] == "Okay") || $_SESSION["lo
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-        aria-controls="navbar">
-          <span class="sr-only">navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="start.html">Web Technologien</a>
-      </div>
-
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="start.html">Start</a></li>
-          <li><a href="View/info.html">Info</a></li>
-          <li><a href="View/contact.html">Kontakt</a></li>
-
-          <li class="active"><a>
-			  <?php
-			  	echo "Hallo {$_SESSION['name']}"; 
-			  ?>
-			  </a></li>
-
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </nav>
-  <!-- end navbar -->
+    <?php
+    if (isset($_COOKIE["email"]) && isset($_COOKIE["email"]) == 1); {
+      //echo "<p class='fehler' > Login Daten nicht korrekt </p>"
+    }
+    ?>
+     
+ 
+    <?php 
+      include "View/navbar_cookie.php";
+    ?>
 
   <div class="container">
     <div class="page-header">
@@ -105,16 +85,11 @@ if (isset($_SESSION["login"]) && ($_SESSION["login"] == "Okay") || $_SESSION["lo
   
   <footer class="footer">
     <div class="container">
-      <p class="text-muted"> &copy; Besart Pllana</p>
+      <p class="text-muted">
+      <?php 
+        include "View/copyright.php";
+      ?></p>
     </div>
   </footer>
 </body>
 </html>
-<?php
-} else {
-	$host  = htmlspecialchars($_SERVER["HTTP_HOST"]);
-	$uri   = rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
-	$extra = "start.html";
-	header("Location: http://$host$uri/$extra");
-}
-?>

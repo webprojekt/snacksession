@@ -20,15 +20,15 @@
 </head>
 
 <body>
- 
-   <?php 
+    <!--php
+      if (isset($_GET["pw"]) && isset($_GET["pw"]) == 1); {
+      //echo "<p class='fehler' > Login Daten nicht korrekt </p>"
+    php-->
     
-    if (isset($_GET["pw"]) && isset($_GET["pw"]) == 1); {
-      echo "<p class='fehler' > Login Daten nicht korrekt </p>"
-    ?>
+
     
     <?php 
-    include "navbar.php";
+      include "navbar.php";
     ?>
   
     <div class="container">
@@ -40,22 +40,23 @@
         <input type="password" name="pw" id="inputPassword" class="form-control" placeholder="Passwort" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Angemeldet bleiben </input>
+            <input type="checkbox" name="check" value="remember-me"> Angemeldet bleiben </input>
           </label>
         </div>
-          <input type="submit" class="btn btn-lg btn-primary btn-block" value="Anmelden"/>
+          <input type="submit" class="btn btn-lg btn-primary btn-block" value="Anmelden"></input>
       </form>
     </div>
-  }  
+    <!--end-container--> 
 
   <footer class="footer">
     <div class="container">
-      <p class="text-muted"> 
-        <?php include "copyright.php";
-        ?>
-       </p>
-    </div>   <!-- /container -->
+      <p class="text-muted">
+      <?php 
+        include "View/copyright.php";
+      ?></p>
+    </div>
   </footer>
+  
   
         <!-- JS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -63,5 +64,6 @@
   <script src="../Controller/js/myscript.js"></script>
   <script src="../Controller/js/bootstrap.min.js"></script>
 </body>
+
 
 </html>
