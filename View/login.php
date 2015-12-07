@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="utf-8">
@@ -46,7 +46,7 @@
           <input type="submit" class="btn btn-lg btn-primary btn-block" value="Anmelden"></input>
       </form>
     </div>
-    <!--end-container--> 
+    <!--end-container-->
 
   <footer class="footer">
     <div class="container">

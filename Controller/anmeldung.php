@@ -8,7 +8,7 @@
   
   session_destroy();
   $host  = htmlspecialchars($_SERVER["HTTP_HOST"]);
-	$uri   = rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
-	$extra = "../wiedersehen.html";
-	header("Location: http://$host$uri/$extra");
+  $uri   = rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
+  $extra = "../View.login.php";
+  header("Location: http://$host$uri/$extra");
 ?>

@@ -23,7 +23,8 @@
             echo htmlspecialchars($_COOKIE["email"]);
           ?>
       </a></li>
-      <li><a href="">Abmelden</a></li>
+      <li><a href="../Controller/logout.php">Abmelden</li>
+      
 
         </ul>
       </div>
