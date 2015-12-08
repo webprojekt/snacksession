@@ -1,7 +1,3 @@
-<?php
-  setcookie("email", "Hans@hans.de", time()+7200);
-  setcookie("passwort", "geheim", time()+7200)
-?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -17,20 +13,14 @@
   
   <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/signin.css">
-  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="../View/css/bootstrap.css">
+  <link rel="stylesheet" href="../View/css/signin.css">
+  <link rel="stylesheet" href="../View/css/footer.css">
 
 </head>
 
 <body>
-    <!--php
-      if (isset($_GET["pw"]) && isset($_GET["pw"]) == 1); {
-      //echo "<p class='fehler' > Login Daten nicht korrekt </p>"
-    php-->
-    
 
-    
     <nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -57,19 +47,24 @@
   <!-- end navbar -->
   
     <div class="container">
-      <form class="form-signin" action="../Controller/login.php" method="post">
+      <form class="form-signin" action="login_md5.php" method="post">
         <h2 class="form-signin-heading">Bitte einloggen</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="mail" id="inputEmail" class="form-control" placeholder="Email Addresse" required autofocus>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email Addresse" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="pw" id="inputPassword" class="form-control" placeholder="Passwort" required>
+        <input type="password" name="passwort" id="inputPassword" class="form-control" placeholder="Passwort" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="check" value="remember-me"> Angemeldet bleiben </input>
+            <input type="checkbox" name="checkbox" value="remember-me"> Angemeldet bleiben </input>
           </label>
         </div>
           <input type="submit" class="btn btn-lg btn-primary btn-block" value="Anmelden"></input>
+          <?php
+            if (isset($_GET["f"]) && $_GET["f"] == 1) echo "<p class='btn btn-danger btn-block'>Login-Daten nicht korrekt</p>"
+          ?>
       </form>
+      
+      
     </div>
     <!--end-container-->
 
@@ -82,9 +77,9 @@
   
         <!-- JS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="../Controller/js/jquery.min.js"></script>
-  <script src="../Controller/js/myscript.js"></script>
-  <script src="../Controller/js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/myscript.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 
 

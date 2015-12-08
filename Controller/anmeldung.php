@@ -9,6 +9,6 @@
   session_destroy();
   $host  = htmlspecialchars($_SERVER["HTTP_HOST"]);
   $uri   = rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
-  $extra = "../View.login.php";
+  $extra = "View.login.php";
   header("Location: http://$host$uri/$extra");
 ?>
