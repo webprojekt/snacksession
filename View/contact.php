@@ -35,7 +35,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="../start.html">Start</a></li>
 					<li><a href="info.html">Info</a></li>
-					<li  class="active"><a href="contact.html">Kontakt</a></li>
+					<li  class="active"><a href="contact.php">Kontakt</a></li>
 				</ul>
       </div>
       <!--/.nav-collapse -->

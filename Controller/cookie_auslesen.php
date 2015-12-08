@@ -1,7 +1,7 @@
 <?php 
 //Pruefung, ob Cookie gesetzt. Falls nicht dann setzen!
-  if (isset($_COOKIE["mail"]) && isset($_COOKIE["pw"])){
-	echo (htmlspecialchars($_COOKIE["mail"])).
-    echo (htmlspecialchars($_COOKIE["pw"]));
+  if (isset($_COOKIE["email"]) && isset($_COOKIE["passwort"])){
+	echo (htmlspecialchars($_COOKIE["email"])).
+    echo (htmlspecialchars($_COOKIE["passwort"]));
   }
 ?>

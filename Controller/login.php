@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host  = htmlspecialchars($_SERVER['HTTP_HOST']);
 $uri   = rtrim(dirname(htmlspecialchars($_SERVER['PHP_SELF'])), '/\\');
 if (isset($_POST["mail"]) && $_POST['mail'] == 'Hans@hans.de' && $_POST['pw'] == 'geheim') {

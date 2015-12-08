@@ -1,7 +1,4 @@
-<?php
-  setcookie("email", "Hans@hans.de", time()+7200);
-  setcookie("passwort", "geheim", time()+7200)
-?>
+
 
 <!DOCTYPE html>
 <html lang="de">
@@ -27,13 +24,6 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_COOKIE["email"]) && isset($_COOKIE["email"]) == 1); {
-      //echo "<p class='fehler' > Login Daten nicht korrekt </p>"
-    }
-    ?>
-     
- 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           
@@ -52,7 +42,7 @@
             <ul class="nav navbar-nav">
               <li><a href="start.html">Start</a></li>
               <li><a href="View/info.html">Info</a></li>
-              <li><a href="View/contact.html">Kontakt</a></li>
+              <li><a href="View/contact.php">Kontakt</a></li>
     
               <li class="active" id=""><a> 
               <?php 
@@ -109,10 +99,7 @@
   
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">
-      <?php 
-        include "View/copyright.php";
-      ?></p>
+      <p class="text-muted"> &copy; Besart Pllana</p>
     </div>
   </footer>
   
