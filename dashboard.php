@@ -44,15 +44,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a href="start.html">Start</a></li>
-              <li><a href="View/info.html">Info</a></li>
+              <li><a href="View/info.php">Info</a></li>
               <li><a href="View/contact.php">Kontakt</a></li>
-    
-              <li class="active" id=""><a> 
-              <?php 
-                echo htmlspecialchars($_COOKIE["email"]);
-              ?>
-          </a></li>
-          <li><a href="Controller/logout.php">Abmelden</li>
+              <!--aktuelle Email anzeigen, falls Benutzer in eine Session -->
+              <li class="active" id=""><a><?php
+                  echo $_SESSION['email'];
+               ?></a></li>
+          <li><a href="Controller/logout.php">Abmelden</a></li>
           
     
             </ul>
@@ -64,8 +62,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
 
   <div class="container">
     <div class="page-header">
-      <h1>Woran wollen Sie sich erinnern?</h1>
-    </div>
+      <?php
+        echo "<h1>Hallo {$_SESSION['email']}.</h1>";
+      ?>
     <form class="page-header" >
       <p>
         <textarea id="textfeld" class="form-control" placeholder="Nachricht ..." rows="4" required></textarea>
@@ -113,11 +112,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
   <script src="Controller/js/myscript.js"></script>
 </body>
 </html>
-<?php
-  echo "<h1>Hallo {$_SESSION['name']}</h1>";
-?>
-<p>Hier stehen viele weitere interessante Informationen</p>
-<p><a href="logout.php">Ausloggen</p>
+
 </body>
 </html>
 <?php

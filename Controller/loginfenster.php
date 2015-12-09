@@ -37,8 +37,8 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="../start.html">Start</a></li>
-					<li><a href="info.html">Info</a></li>
-					<li><a href="contact.php">Kontakt</a></li>
+					<li><a href="../View/info.php">Info</a></li>
+					<li><a href="../View/contact.php">Kontakt</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

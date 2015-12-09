@@ -34,8 +34,9 @@
       <div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="../start.html">Start</a></li>
-					<li><a href="info.html">Info</a></li>
+					<li><a href="info.php">Info</a></li>
 					<li  class="active"><a href="contact.php">Kontakt</a></li>
+          
 				</ul>
       </div>
       <!--/.nav-collapse -->
