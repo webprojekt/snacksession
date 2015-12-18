@@ -12,20 +12,21 @@
 <body>
 <?php
 require_once "Controller/db_daten_aktuell.php";
-if ($stmt = $mysqli->prepare("SELECT message, date, email FROM session")) {
+if ($stmt = $mysqli->prepare("SELECT * FROM session WHERE `email` LIKE '%Hans%' ")) {
   $stmt->execute();
   $stmt->bind_result($message, $date, $email);
   echo "<ul>\n";
   while($stmt->fetch()) {
     echo "<li><strong>"
-          . htmlspecialchars($titel)
+          . htmlspecialchars($date)
+          . htmlspecialchars($email)
           . "</strong>: "
-	  . htmlspecialchars($text)
+	  . htmlspecialchars($message)
 	  . "| <a href='bearbeiten.php?id="
-	  . (int)$id
+	  . (string)$email
 	  . "'>bearbeiten</a> "
 	  . "| <a href='loeschen.php?id="
-	  . (int)$id
+	  . (string)$email
 	  . "'>löschen</a>"
 	  . "</li>\n";
   }

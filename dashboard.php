@@ -74,25 +74,39 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
       </p>
     </form>
   </div>
-  
+
   <!--start-container -->
   <div class="container">
     <div class="cell-header">
     </div>
     <div class="list-group">
-      <a href="#" class="list-group-item">
-        <!--class="list-group-item active", wenn eintrag angewaehlt -->
-        <h4 id="item1" href="#" class="list-group-item-heading">alt</h4>
-        <p id="dateItem1" class="list-group-item-text">07.11.2015, 12:47 Uhr</p>
-      </a>
-      <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">Bücher zurückbringen und ggf. einen Film ausleihen</h4>
-        <p class="list-group-item-text">05.11.2015, 10.24 Uhr</p>
-      </a>
-      <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">Bewerbung und Lebenslauf fertigstellen</h4>
-        <p class="list-group-item-text">09.10.2015, 18:39 Uhr</p>
-      </a>
+      <?php
+        require_once "Controller/db_daten_aktuell.php";
+        if ($stmt = $mysqli->prepare("SELECT * FROM session WHERE `email` LIKE '%Hans%' ")) {
+          $stmt->execute();
+          $stmt->bind_result($message, $date, $email);
+          
+          while($stmt->fetch()) {
+            echo  "<a href='#' class='list-group-item'>"
+                  . " <h4 id='item1' href='#' class='list-group-item-heading'> "
+                  . htmlspecialchars($message)
+                  . "</h4>"
+                  . " <p id='dateItem1' class='list-group-item-text'> "
+                  . htmlspecialchars($date)
+            
+            . "<a href='bearbeiten.php?id="
+            . (string)$email
+            . "'>bearbeiten</a> "
+            . " | <a href='loeschen.php?id="
+            . (string)$email
+            . "'>löschen</a>"
+            . "</li>\n";
+          }
+          echo "</p>\n";
+          $stmt->close();
+          }
+        $mysqli->close();
+       ?>
     </div>
   </div>
   <!--end-container-->
