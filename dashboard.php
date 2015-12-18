@@ -88,21 +88,21 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
           
           while($stmt->fetch()) {
             echo  "<a href='#' class='list-group-item'>"
-                  . " <h4 id='item1' href='#' class='list-group-item-heading'> "
+                  . "<h4 id='item1' href='#' class='list-group-item-heading'>"
                   . htmlspecialchars($message)
                   . "</h4>"
-                  . " <p id='dateItem1' class='list-group-item-text'> "
+                  . "<p id='dateItem1' class='list-group-item-text'>"
                   . htmlspecialchars($date)
-            
-            . "<a href='bearbeiten.php?id="
+                  .  "</p>"
+            . "<a type='button' class='btn btn-success href='bearbeiten.php?id=" 
             . (string)$email
             . "'>bearbeiten</a> "
-            . " | <a href='loeschen.php?id="
+            . "<a type='button' class='btn btn-danger href='loeschen.php?id=" 
             . (string)$email
             . "'>löschen</a>"
-            . "</li>\n";
+            . "\n";
           }
-          echo "</p>\n";
+          echo "</a>\n";
           $stmt->close();
           }
         $mysqli->close();
@@ -110,8 +110,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == "ok") {
     </div>
   </div>
   <!--end-container-->
-  
-
   
   <footer class="footer">
     <div class="container">
